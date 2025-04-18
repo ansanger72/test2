@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <style>
+    #game-container {
+      text-align: center;
+      margin: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    #hint {
+      margin: 15px 0;
+    }
+    #score, #result {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+
+  <div id="header">
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="#">About Me</a>
+    </nav>
+    <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="350" width="350" alt="Travel Landscape">
+    <h1>I Love to Travel!</h1>
+  </div>
+
+  <div id="content">
+    <ol>
+      <li>Places I've Traveled
+        <ul>
+          <li>Olden, Norway</li>
+          <li>Bruges, Belgium</li>
+          <li>Maui, Hawaii</li>
+        </ul>
+      </li>
+      <li>Things I've Tried
+        <ul>
+          <li>Tried Belgium Fries from the oldest vendor in the city.</li>
+          <li>Saw Phantom of the Opera at the Queen's Theatre in London.</li>
+          <li>Hiked to the Briksdal Glacier in the mountains of Norway.</li>
+        </ul>
+      </li>
+      <li>Places I Want to Go
+        <ul>
+          <li>Rome, Italy</li>
+          <li>Anchorage, Alaska</li>
+          <li>Tokyo, Japan</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Favorite Travel Video</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/uBiDRri6sDE" style="border: 0;" allowfullscreen></iframe>
+
+    <h2>Check out this Tableau Graph</h2>
+    <div class="tableauPlaceholder" id="viz1733375359298" style="position: relative">
+      <noscript>
+        <a href="#">
+          <img alt="The Travel Bug In Me" src="https://public.tableau.com/static/images/Th/TheTravelBugInMe/TheTravelBugInMe/1_rss.png" style="border: none">
+        </a>
+      </noscript>
+      <object class="tableauViz" style="display: none;"
+              data="https://public.tableau.com/views/TheTravelBugInMe/TheTravelBugInMe"
+              type="text/html">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="TheTravelBugInMe/TheTravelBugInMe" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value="https://public.tableau.com/static/images/Th/TheTravelBugInMe/TheTravelBugInMe/1.png" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+        <param name="ignore_sticky_session" value="yes" />
+      </object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById('viz1733375359298');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      vizElement.style.width = '100%';
+      vizElement.style.height = '877px';
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <h2>Country Guessing Game</h2>
+    <div id="game-container">
+      <p>Guess the country I’m thinking of!</p>
+      <div id="options"></div>
+      <p id="hint"></p>
+      <div id="result"></div>
+      <div id="score"></div>
+    </div>
+
+    <script>
+      const countries = [
+        { name: "France", hint: "Think of a certain famous tower." },
+        { name: "Japan", hint: "Known for certain kinds of blossoms." },
+        { name: "Brazil", hint: "Home to lush environments." },
+        { name: "Egypt", hint: "Famous for their ancient civilizations." },
+        { name: "Australia", hint: "Land of dangerous animals." },
+      ];
+
+      let randomCountry;
+      let attempts;
+
+      function startGame() {
+        randomCountry = countries[Math.floor(Math.random() * countries.length)];
+        attempts = 0;
+
+        const optionsContainer = document.getElementById("options");
+        optionsContainer.innerHTML = "";
+        document.getElementById("hint").textContent = "";
+        document.getElementById("result").textContent = "";
+        document.getElementById("score").textContent = "";
+
+        countries.forEach((country) => {
+          const button = document.createElement("button");
+          button.textContent = country.name;
+          button.className = "button";
+          button.onclick = () => checkAnswer(country.name);
+          optionsContainer.appendChild(button);
+        });
+      }
+
+      function checkAnswer(selectedCountry) {
+        attempts++;
+        if (selectedCountry === randomCountry.name) {
+          document.getElementById("result").textContent = `🎉 Correct! The country was ${randomCountry.name}.`;
+          document.getElementById("score").textContent = `You guessed it in ${attempts} attempts!`;
+          setTimeout(() => {
+            alert("Great job! Starting a new round.");
+            startGame();
+          }, 2000);
+        } else {
+          document.getElementById("result").textContent = "❌ Wrong guess! Try again.";
+          document.getElementById("hint").textContent = `Hint: ${randomCountry.hint}`;
+        }
+      }
+
+      startGame();
+    </script>
+
+    <p>Check this out! <a href="https://en.wikipedia.org/wiki/Travel">Click me please</a></p>
+  </div>
+
+  <div id="footer">
+    <a href="#top">Back to Top</a>
+    <p>© 2025 Ashlynn N. Sanger</p>
+  </div>
+</body>
+</html>

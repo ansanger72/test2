@@ -1,0 +1,62 @@
+/* 1. Header styles */
+#header {
+  background-color: #f0f8ff; /* Light blue background */
+  color: #003366; /* Dark blue text */
+  text-align: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Content block styles */
+#content {
+  background-color: #ffffff; /* White background */
+  color: #333333; /* Dark gray text */
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  border: 1px solid #ccc; /* Light gray border */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 3. Footer styles */
+#footer {
+  background-color: #003366; /* Dark blue background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 4. General paragraph styles */
+p {
+  line-height: 1.5; /* Improve readability */
+  margin: 10px 0;
+}
+
+/* 5. Body background */
+body {
+  background-image: url(https://media.istockphoto.com/id/1299043153/vector/illustration-of-cherry-blossoms-filling-the-screen-on-japanese-paper.jpg?s=612x612&w=0&k=20&c=sU4OWwZAhFU2oBVcnYu5QoeOCc-mtSxsfG37D0RH8FU=);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* 6. Navigation styles */
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #003366;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #0066cc;
+}
+
